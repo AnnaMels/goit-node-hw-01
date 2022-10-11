@@ -28,6 +28,13 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
 const arr = hideBin(process.argv);
 const { argv } = yargs(arr);
-invokeAction(argv);
 
+const start = async (argv) => {
+    try {
+        await invokeAction(argv);
+    } catch (error) {
+        console.log(error);
+    }
+};
+start(argv);
 
